@@ -1,6 +1,6 @@
 <div align="center">
 
-# MarkDownAnything
+![Logo de MarkdownAnything](./assets/images/logo.svg)
 
 🎯 Convierte cualquier archivo a formato Markdown de forma sencilla
 
@@ -9,6 +9,7 @@
 ![Licencia](https://img.shields.io/badge/licencia-MIT-green)
 
 </div>
+
 
 ![Preview de MarkdownAnything](./assets/images/preview.webp)
 
