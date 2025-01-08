@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarkDownAnything</title>
-    <!-- Añadir la librería SheetJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
     <style>
@@ -282,7 +280,8 @@
     };
 
     const handleCopy = async () => {
-        elements.markdownArea.select(); // Seleccionar el texto
+
+        elements.markdownArea.select();
         try {
             await navigator.clipboard.writeText(elements.markdownArea.value);
             updateCopyButtonStatus('Copiado!');
@@ -303,19 +302,6 @@
         setTimeout(() => {
             elements.copyButton.title = originalTitle;
         }, 2000);
-    };
-
-    // Función para convertir JSON a Markdown
-    const convertToMarkdown = (data) => {
-        if (data.length === 0) return '';
-        const headers = data[0];
-        const rows = data.slice(1);
-        let markdown = '| ' + headers.join(' | ') + ' |\n';
-        markdown += '| ' + headers.map(() => '---').join(' | ') + ' |\n';
-        rows.forEach(row => {
-            markdown += '| ' + row.join(' | ') + ' |\n';
-        });
-        return markdown;
     };
 
     // Event Listeners
