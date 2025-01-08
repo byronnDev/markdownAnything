@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo de MarkdownAnything](./assets/images/logo.svg)
+<img src="./assets/images/logo.svg" alt="Logo de MarkdownAnything" width="300" height="auto" style="max-width: 100%; height: auto;">
 
 🎯 Convierte cualquier archivo a formato Markdown de forma sencilla
 
