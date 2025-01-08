@@ -1,73 +1,73 @@
 <div align="center">
 
-<img src="./assets/images/logo.svg" alt="Logo de MarkdownAnything" width="300" height="auto" style="max-width: 100%; height: auto;">
+<img src="./assets/images/logo.svg" alt="MarkdownAnything Logo" width="300" height="auto" style="max-width: 100%; height: auto;">
 
-🎯 Convierte cualquier archivo a formato Markdown de forma sencilla
+🎯 Easily convert any file to Markdown format
 
-![Estado del Proyecto](https://img.shields.io/badge/estado-activo-brightgreen)
-![Versión](https://img.shields.io/badge/versión-1.0.0-blue)
-![Licencia](https://img.shields.io/badge/licencia-MIT-green)
+![Project Status](https://img.shields.io/badge/status-active-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 </div>
 
 
-![Preview de MarkdownAnything](./assets/images/preview.webp)
+![MarkdownAnything Preview](./assets/images/preview.webp)
 
-## ✨ Características
+## ✨ Features
 
-- 📝 Conversión instantánea a Markdown
-- 🎨 Interfaz moderna y responsive
-- 🌓 Soporte para modo oscuro/claro
-- 📋 Copiado al portapapeles con un clic
-- 🚀 Instalación y configuración automática
-- 💻 Multiplataforma (Windows, macOS, Linux)
+- 📝 Instant Markdown conversion
+- 🎨 Modern and responsive interface
+- 🌓 Support for dark/light mode
+- 📋 One-click clipboard copying
+- 🚀 Automatic installation and configuration
+- 💻 Cross-platform (Windows, macOS, Linux)
 
-## 🛠️ Requisitos Previos
+## 🛠️ Prerequisites
 
 - Node.js >= 14
 - Python >= 3.8
-- pip (gestor de paquetes de Python)
+- pip (Python package manager)
 
-## ⚡ Instalación Rápida
+## ⚡ Quick Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 ```bash
 git clone https://github.com/byronnDev/markdownanything.git
 cd markdownanything
 ```
 
-2. Instala las dependencias y configura el entorno:
+2. Install dependencies and set up the environment:
 ```bash
 npm run setup
 ```
 
-Este comando:
-- Crea un entorno virtual de Python
-- Instala las dependencias de Python
-- Instala las dependencias de Node.js
-- Configura los directorios necesarios
+This command:
+- Creates a Python virtual environment
+- Installs Python dependencies
+- Installs Node.js dependencies
+- Sets up necessary directories
 
-## 🚦 Uso
+## 🚦 Usage
 
-1. Inicia la aplicación:
+1. Start the application:
 ```bash
 npm start
 ```
 
-2. Abre tu navegador en `http://localhost:3002`
-3. Sube cualquier archivo compatible
-4. ¡Obtén tu markdown!
-4. Una vez subido, asegúrate de actualizar estas URLs en el README.md:
+2. Open your browser at `http://localhost:3002`
+3. Upload any supported file
+4. Get your markdown!
+4. Once uploaded, make sure to update these URLs in README.md:
 
-## 📋 Formatos Soportados
+## 📋 Supported Formats
 
-- Documentos de texto (.txt, .doc, .docx)
-- Hojas de cálculo (.xlsx, .csv)
-- Presentaciones (.ppt, .pptx)
+- Text documents (.txt, .doc, .docx)
+- Spreadsheets (.xlsx, .csv)
+- Presentations (.ppt, .pptx)
 - PDF (.pdf)
-- Y más...
+- And more...
 
-## 🔧 Tecnologías
+## 🔧 Technologies
 
 - Frontend:
   - HTML5
@@ -77,16 +77,16 @@ npm start
   - Node.js
   - Express
   - Python
-  - markitdown (librería Python)
+  - markitdown (Python library)
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-1. Haz fork del proyecto
-2. Crea tu rama de características (`git checkout -b feature/AmazingFeature`)
-3. Haz commit de tus cambios (`git commit -m 'Add: alguna característica asombrosa'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add: some amazing feature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## ✨ Créditos
+## ✨ Credits
 
-Desarrollado con ❤️ por Mikel Echeverria
+Developed with ❤️ by Mikel Echeverria
