@@ -9,11 +9,23 @@ const { convertToMarkdown } = require('./converter.cjs');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// Configuración personalizada de almacenamiento para Multer
+const storage = multer.diskStorage({
+    destination: 'uploads/',
+    filename: (req, file, cb) => {
+        const originalName = path.parse(file.originalname).name.replace(/\s+/g, '_');
+        const extension = path.extname(file.originalname);
+        const uniqueSuffix = Date.now();
+        const filename = `${originalName}-${uniqueSuffix}${extension}`;
+        cb(null, filename);
+    }
+});
+
+const upload = multer({ storage });
+
 const app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname)));
-
-const upload = multer({ dest: 'uploads/' });
 
 app.post('/convert', upload.single('file'), (req, res) => {
     const filePath = path.join(__dirname, req.file.path);
