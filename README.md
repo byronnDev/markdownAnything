@@ -10,6 +10,8 @@
 
 </div>
 
+![Preview de MarkdownAnything](./assets/images/preview.webp)
+
 ## ✨ Características
 
 - 📝 Conversión instantánea a Markdown
