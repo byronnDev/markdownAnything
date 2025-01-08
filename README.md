@@ -1,22 +1,35 @@
+<div align="center">
+
 # MarkDownAnything
 
-![MarkDownAnything Logo](./assets/images/logo.png)
+🎯 Convierte cualquier archivo a formato Markdown de forma sencilla
 
-Una aplicación web simple pero potente que convierte cualquier archivo a formato Markdown.
+![Estado del Proyecto](https://img.shields.io/badge/estado-activo-brightgreen)
+![Versión](https://img.shields.io/badge/versión-1.0.0-blue)
+![Licencia](https://img.shields.io/badge/licencia-MIT-green)
 
-## 🚀 Características
+</div>
 
-- Conversión de múltiples formatos a Markdown
-- Interfaz intuitiva y responsive
-- Previsualización instantánea
-- Copiado al portapapeles con un clic
-- Soporte para modo oscuro
+## ✨ Características
 
-## 🛠️ Instalación
+- 📝 Conversión instantánea a Markdown
+- 🎨 Interfaz moderna y responsive
+- 🌓 Soporte para modo oscuro/claro
+- 📋 Copiado al portapapeles con un clic
+- 🚀 Instalación y configuración automática
+- 💻 Multiplataforma (Windows, macOS, Linux)
+
+## 🛠️ Requisitos Previos
+
+- Node.js >= 14
+- Python >= 3.8
+- pip (gestor de paquetes de Python)
+
+## ⚡ Instalación Rápida
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/markdownanything.git
+git clone https://github.com/byronnDev/markdownanything.git
 cd markdownanything
 ```
 
@@ -41,6 +54,7 @@ npm start
 2. Abre tu navegador en `http://localhost:3002`
 3. Sube cualquier archivo compatible
 4. ¡Obtén tu markdown!
+4. Una vez subido, asegúrate de actualizar estas URLs en el README.md:
 
 ## 📋 Formatos Soportados
 
@@ -62,12 +76,6 @@ npm start
   - Python
   - markitdown (librería Python)
 
-## 📝 Requisitos
-
-- Node.js >= 14
-- Python >= 3.8
-- pip (gestor de paquetes de Python)
-
 ## 🤝 Contribuir
 
 1. Haz fork del proyecto
@@ -78,4 +86,4 @@ npm start
 
 ## ✨ Créditos
 
-Desarrollado con ❤️ por [Tu Nombre]
+Desarrollado con ❤️ por Mikel Echeverria
