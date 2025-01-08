@@ -34,6 +34,52 @@
             }
         }
 
+        /* Powered By */
+        .poweredBy {
+            margin: 0;
+            position: fixed; /* Cambiado de absolute a fixed */
+            bottom: 0; /* Posicionado en la parte inferior */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1rem; /* Ajustado padding */
+            font-size: 0.9rem; /* Ajustado tamaño de fuente */
+            color: #7f8c8d;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.2); /* Fondo semi-transparente */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .poweredBy a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .poweredBy a:hover {
+            color: #2ecc71;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .poweredBy {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
         /* Contenedor Principal */
         .container {
             max-width: 800px;
@@ -136,12 +182,20 @@
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
             }
+
+            .poweredBy {
+                font-size: 0.7rem;
+            }
         }
 
         @media screen and (max-width: 480px) {
             button {
                 padding: 0.7rem 1.2rem;
                 font-size: 0.8rem;
+            }
+
+            .poweredBy {
+                font-size: 0.6rem;
             }
         }
 
@@ -329,6 +383,9 @@
             }
         }
     </style>
+    <p class="poweredBy">
+        Powered by <a href="www.mikeldev.com">mikeldev.com</a>
+    </p>
     <div class="container">
         <h1 class="title">MarkDownAnything</h1>
         <p class="lead">
@@ -371,6 +428,21 @@
     };
 
     const API_URL = window.location.origin;
+
+    import { translations } from './translations.js';
+
+    // Detectar el idioma del dispositivo
+    const userLang = navigator.language || navigator.userLanguage;
+    const lang = userLang.startsWith('es') ? 'es' : 'en';
+
+    // Aplicar traducciones
+    document.querySelector('.title').textContent = translations[lang].title;
+    document.querySelector('.lead').textContent = translations[lang].lead;
+    document.querySelector('.drop-zone p').textContent = translations[lang].dropZoneText;
+    document.querySelector('.subirArchivo').textContent = translations[lang].selectFileButton;
+    document.querySelector('.poweredBy a').textContent = translations[lang].poweredBy;
+    document.querySelector('.resultado').textContent = translations[lang].resultTitle;
+    document.getElementById('copyButton').title = translations[lang].copyButtonTitle;
 
     // Event Handlers
     const handleFileChange = () => {
