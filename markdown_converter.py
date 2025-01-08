@@ -11,7 +11,7 @@ def main():
 
     file_path = sys.argv[1]
     if not os.path.isfile(file_path):
-        print("El archivo especificado no existe.")
+        print("The specified file does not exist.")
         sys.exit(1)
 
     md = MarkItDown()

@@ -22,8 +22,8 @@ function showBanner() {
     ██╔████╔██║███████║██████╔╝█████╔╝ ██║  ██║██║   ██║██║ █╗ ██║██╔██╗ ██║
     ██║╚██╔╝██║██╔══██║██╔══██╗██╔═██╗ ██║  ██║██║   ██║██║███╗██║██║╚██╗██║
     ██║ ╚═╝ ██║██║  ██║██║  ██║██║  ██╗██████╔╝╚██████╔╝╚███╔███╔╝██║ ╚████║
-    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═══╝
-                        ${colors.yellow}Convierte cualquier archivo a Markdown${colors.reset}
+    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═══╝
+                        ${colors.yellow}Convert any file to Markdown${colors.reset}
     `);
 }
 
@@ -32,31 +32,36 @@ async function start() {
         clearConsole();
         showBanner();
 
-        console.log(`${colors.blue}⚡ Iniciando configuración...${colors.reset}\n`);
+        console.log(`${colors.blue}⚡ Setting up environment...${colors.reset}`);
         await setup();
 
-        console.log(`\n${colors.magenta}🚀 Iniciando servidor...${colors.reset}`);
+        console.log(`${colors.magenta}🚀 Starting server...${colors.reset}`);
         const { port } = await startServer();
         
         const url = `http://localhost:${port}`;
-        console.log(`\n${colors.green}✨ Servidor listo en: ${colors.bright}${url}${colors.reset}`);
+        console.log(`\n${colors.green}✨ Server ready at: ${colors.bright}${url}${colors.reset}`);
 
         await new Promise(resolve => setTimeout(resolve, 1000));
 
         const open = (await import('open')).default;
-        console.log(`\n${colors.cyan}🌐 Abriendo navegador...${colors.reset}`);
+        console.log(`\n${colors.cyan}🌐 Opening browser...${colors.reset}`);
         await open(url);
 
-        console.log(`\n${colors.yellow}📝 La aplicación está lista para usar!${colors.reset}\n`);
+        console.log(`\n${colors.yellow}📝 The application is ready to use!${colors.reset}\n`);
 
     } catch (error) {
-        console.error(`\n${colors.red}❌ Error al iniciar la aplicación:${colors.reset}`, error);
+        console.error(`\n${colors.red}❌ Error starting the application:${colors.reset}`, error);
         process.exit(1);
     }
 }
 
 process.on('unhandledRejection', (err) => {
-    console.error(`\n${colors.red}❌ Error no manejado:${colors.reset}`, err);
+    console.error(`\n${colors.red}❌ Unhandled error:${colors.reset}`, err);
 });
+
+startServer()
+    .catch(error => {
+        console.error('Error starting the server:', error);
+    });
 
 start();

@@ -4,17 +4,17 @@ const multer = require('multer');
 const cors = require('cors');
 const { convertToMarkdown } = require('./converter.cjs');
 
-// Configuración personalizada de almacenamiento para Multer
+// Custom storage configuration for Multer
 const storage = multer.diskStorage({
     destination: 'uploads/',
     filename: (req, file, cb) => {
-        // Extraer el nombre original del archivo sin la extensión
+        // Extract the original file name without extension
         const originalName = path.parse(file.originalname).name.replace(/\s+/g, '_');
-        // Obtener la extensión original del archivo
+        // Get the original file extension
         const extension = path.extname(file.originalname);
-        // Generar un nombre único agregando la fecha y hora actual
+        // Generate a unique name by adding the current date and time
         const uniqueSuffix = Date.now();
-        // Asignar el nombre con la extensión original
+        // Assign the name with the original extension
         const filename = `${originalName}-${uniqueSuffix}${extension}`;
         cb(null, filename);
     }
@@ -22,10 +22,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-function startServer() {
+function startServer(port = 3002, retries = 5) {
     return new Promise((resolve, reject) => {
         const app = express();
-        const PORT = process.env.PORT || 3002;
+        const PORT = port;
 
         app.use(cors());
         app.use(express.static(path.join(__dirname)));
@@ -35,22 +35,27 @@ function startServer() {
                 const filePath = path.join(__dirname, req.file.path);
                 convertToMarkdown(filePath, (err, markdown) => {
                     if (err) {
-                        return res.status(500).send('Error al convertir el archivo.');
+                        return res.status(500).send('Error converting the file.');
                     }
                     res.send({ markdown });
                 });
             } catch (error) {
-                return res.status(500).send('Error al convertir el archivo.');
+                return res.status(500).send('Error converting the file.');
             }
         });
 
         const server = app.listen(PORT, () => {
-            // console.log(`Servidor corriendo en el puerto ${PORT}`);
+            // console.log(`Server running on port ${PORT}`);
             resolve({ port: PORT, app, server });
         });
 
         server.on('error', (error) => {
-            reject(error);
+            if (error.code === 'EADDRINUSE' && retries > 0) {
+                console.warn(`\x1b[33m🔄 Port ${PORT} in use. Trying port ${PORT + 1}...\x1b[0m`);
+                startServer(PORT + 1, retries - 1).then(resolve).catch(reject);
+            } else {
+                reject(error);
+            }
         });
     });
 }

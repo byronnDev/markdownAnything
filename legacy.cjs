@@ -9,7 +9,7 @@ const { convertToMarkdown } = require('./converter.cjs');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Configuración personalizada de almacenamiento para Multer
+// Custom storage configuration for Multer
 const storage = multer.diskStorage({
     destination: 'uploads/',
     filename: (req, file, cb) => {
@@ -31,7 +31,7 @@ app.post('/convert', upload.single('file'), (req, res) => {
     const filePath = path.join(__dirname, req.file.path);
     convertToMarkdown(filePath, (err, markdown) => {
         if (err) {
-            return res.status(500).send('Error al convertir el archivo.');
+            return res.status(500).send('Error converting the file.');
         }
         res.send({ markdown });
     });
@@ -39,7 +39,7 @@ app.post('/convert', upload.single('file'), (req, res) => {
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-    // console.log(`Servidor corriendo en el puerto ${PORT}`);
+    // console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
