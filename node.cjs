@@ -31,17 +31,21 @@ function startServer() {
         app.use(express.static(path.join(__dirname)));
 
         app.post('/convert', upload.single('file'), (req, res) => {
-            const filePath = path.join(__dirname, req.file.path);
-            convertToMarkdown(filePath, (err, markdown) => {
-                if (err) {
-                    return res.status(500).send('Error al convertir el archivo.');
-                }
-                res.send({ markdown });
-            });
+            try {
+                const filePath = path.join(__dirname, req.file.path);
+                convertToMarkdown(filePath, (err, markdown) => {
+                    if (err) {
+                        return res.status(500).send('Error al convertir el archivo.');
+                    }
+                    res.send({ markdown });
+                });
+            } catch (error) {
+                return res.status(500).send('Error al convertir el archivo.');
+            }
         });
 
         const server = app.listen(PORT, () => {
-            console.log(`Servidor corriendo en el puerto ${PORT}`);
+            // console.log(`Servidor corriendo en el puerto ${PORT}`);
             resolve({ port: PORT, app, server });
         });
 
